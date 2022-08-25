@@ -1,0 +1,16 @@
+{
+    "name": "cartthrob/discount-buy-x-get-percent_off",
+    "description": "Buy X / Get Percent Off Discount for CartThrob",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Foster Made",
+            "email": "support@cartthrob.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/Cartthrob_discount_percentage_off_over_x_items.php"
+        ]
+    }
+}
