@@ -1,6 +1,7 @@
 <?php if ( ! defined('CARTTHROB_PATH')) Cartthrob_core::core_error('No direct script access allowed');
 
 use CartThrob\Plugins\Discount\DiscountPlugin;
+use CartThrob\Math\Number;
 
 class Cartthrob_discount_percentage_off_over_x_items extends DiscountPlugin
 {
@@ -22,9 +23,9 @@ class Cartthrob_discount_percentage_off_over_x_items extends DiscountPlugin
 	
 	public function get_discount()
 	{
-		$count = count($this->core->cart->items()); 
-		if ($count >= $this->core->sanitize_number($this->plugin_settings('order_over'))) {
-			return $this->core->cart->subtotal() * ($this->core->sanitize_number($this->plugin_settings('percentage_off')) / 100);
+		$count = count($this->core->cart->items());
+		if ($count >= Number::sanitize($this->plugin_settings('order_over'))) {
+			return $this->core->cart->subtotal() * (Number::sanitize($this->plugin_settings('percentage_off')) / 100);
 		}
 		
 		return 0;
